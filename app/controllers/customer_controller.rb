@@ -1,6 +1,10 @@
 class CustomersController < ApplicationController
-  def index
-  	@customers = Restaurant.all
+  def new
+  	@customers = Customer.all
+  end
+
+  def create
+    @customers = Customer.all
   end
 
   def show
