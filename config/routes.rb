@@ -1,12 +1,8 @@
 Rails.application.routes.draw do
 
-  resources :reservations, only: (:show, :create, :destroy)
-  resources :sessions, only: (:new, :create, :destroy)
-  get 'sessions/new'
+  resources :reservations, only: [:show, :create, :destroy]
+  resources :sessions, only: [:new, :create, :destroy]
 
-  get 'sessions/create'
-
-  get 'sessions/destroy'
 
 
   # The priority is based upon order of creation: first created -> highest priority.
