@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
 
 
+  get 'customer/new'
+
+  get 'customer/create'
+
+  get 'customer/show'
+
   resources :restaurants, only: [:index, :show]
   resources :reservations, only: [:show, :create, :destroy]
   resources :sessions, only: [:new, :create, :destroy]
