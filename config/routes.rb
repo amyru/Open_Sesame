@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
 <<<<<<< HEAD
-  resources :restaurants, only [:index, :show]
+  resources :restaurants, only: [:index, :show]
 
   get 'reservations/show'
 =======
