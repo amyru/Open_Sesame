@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-  	session[:customer_id] = nill
+  	session[:customer_id] = nil
   	redirect_to new_session_url
   end
 end
