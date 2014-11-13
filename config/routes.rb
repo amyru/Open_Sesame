@@ -1,13 +1,10 @@
 Rails.application.routes.draw do
 
-<<<<<<< HEAD
-  resources :restaurants, only: [:index, :show]
 
-  get 'reservations/show'
-=======
+  resources :restaurants, only: [:index, :show]
   resources :reservations, only: [:show, :create, :destroy]
   resources :sessions, only: [:new, :create, :destroy]
->>>>>>> d011c432ed7ce3fc9f24b0588aaf003a9df8c9bb
+  
 
 
 
