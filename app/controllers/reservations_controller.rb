@@ -1,17 +1,18 @@
 class ReservationsController < ApplicationController
-	before_filter :ensure_loged_in
+	# before_filter :ensure_logged_in
 
   def show
   	@reservation = Reservation.find(params[:id])
   end
 
   def create
-  	@reservation = @restaurant.reservation.build(reservation_params)
+    @restaurant = Restaurant.find(params[:restaurant_id])
+  	@reservation = @restaurant.reservations.build(reservation_params)
   	@reservation.customer = current_customer
   	if @reservation.save                
-  		redirect_to confirmation_path  #need to create a confirmation page and path or we just redirect to restaurant list and write a notice that the restervation has been saved
+  		redirect_to restaurant_path(@restaurant)  #need to create a confirmation page and path or we just redirect to restaurant list and write a notice that the restervation has been saved
   	else
-  		render "restaurants"
+  		render "/restaurants/show"
   	end
   end
 

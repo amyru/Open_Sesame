@@ -30,14 +30,15 @@ gem 'bootstrap-sass', '~> 3.3.1'
 
 gem 'autoprefixer-rails'
 group :development, :test do
-	# gem 'better_errors'
+	gem 'better_errors'
 	gem 'binding_of_caller'
 	gem 'quiet_assets'
-
+	gem 'coolline'
 	gem 'pry-rails'
 	gem 'pry-doc'
 	gem 'pry-byebug'
 	gem 'awesome_print'
+	gem 'rspec-rails'
 end
 
 # Use ActiveModel has_secure_password
