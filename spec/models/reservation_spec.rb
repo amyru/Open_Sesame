@@ -1,14 +1,7 @@
 require 'rails_helper'
 
-describe Reservation do
 
-	describe "#is_available" do
-
-		it "should be true" do
-			reservation = Reservation.new
-			expect(reservation.is_available).to eq(true)
-		end
-		
-	end
+RSpec.describe Reservation, :type => :model do
+  # pending "add some examples to (or delete) #{__FILE__}"
 
 end
