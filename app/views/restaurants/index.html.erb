@@ -9,31 +9,11 @@
       <% end %>
 </p>
 
-<%= form_for @reservation do |f| %>
-  <% if @reservation.errors.any? %>
-    <div class="error_messages">
-      <h2>Form is invalid</h2>
-      <ul>
-        <% for message in @reservation.errors.full_messages %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <div class="field">
-    <%= f.label :reservation_time %><br/>
-    <%= f.datetime_field :reservation_time %>
-  </div>
-  <div class="field">
-    <%= f.label :party_size %><br/>
-    <%= f.number_field :party_size %>
-  </div>
-  <div class="actions"><%= f.submit %></div>
-<% end %>
 
-<% @restaurants.each do |x| %>
-	<h2><%= x.name %></h2>
-	<h2><%= x.phone_number %></h2>
-	<h2><%= x.address %></h2> 
-	<h2><%= x.capacity %></h2>
+
+<% @restaurants.each do |restaurant| %>
+	<p>
+    <%= restaurant.name %> - <%= restaurant.phone_number %> - <%= restaurant.address %> - <%= restaurant.capacity %>
+    <%= link_to "View", restaurant_path(restaurant) %> 
+  </p>
 <% end %>
