@@ -1,1 +1,13 @@
-new.html.erb
+<%= form_for @reservation do |f| %>
+	<div class="field">
+		<%= f.label :reservation_time %><br/>
+		<%= f.datetime_field :reservation_time %>
+	</div>
+	<div class="field">
+		<%= f.label :party_size %><br/>
+		<%= f.number_field :party_size %>
+	</div>
+	<div class="action">
+		<%= f.submit %>
+	<div>
+<% end %>
