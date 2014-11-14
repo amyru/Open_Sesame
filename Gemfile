@@ -38,10 +38,13 @@ group :development, :test do
 	gem 'pry-doc'
 	gem 'pry-byebug'
 	gem 'awesome_print'
+	gem 'rspec-rails', '~> 3.0.0'
 end
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
+
+
 
 # Use unicorn as the app server
 # gem 'unicorn'
