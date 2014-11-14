@@ -7,7 +7,7 @@ class CustomersController < ApplicationController
     @customer = Customer.new(customer_params)
     if @customer.save 
       session[:customer_id] = @customer.id
-      redirect_to restaurant_url
+      redirect_to restaurants_url
     else
       render "new"
     end
@@ -19,7 +19,7 @@ class CustomersController < ApplicationController
 
 private
   def customer_params
-    params.require(:customer).permit(:first_name, :last_name, :email_address, :password, :password_confirmation)
+    params.require(:customer).permit(:first_name, :last_name, :email, :password, :password_confirmation)
   end
 
 end

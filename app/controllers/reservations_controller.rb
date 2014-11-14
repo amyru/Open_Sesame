@@ -7,12 +7,13 @@ class ReservationsController < ApplicationController
 
   def create
   	@reservation = @restaurant.reservation.build(reservation_params)
-  	# @reservation.customer = current_customer
-  	# if @reservation.save                
-  	# 	redirect_to confirmation_path  #need to create a confirmation page and path or we just redirect to restaurant list and write a notice that the restervation has been saved
-  	# else
-  	# 	render "restaurants"
-  	# end
+  	@reservation.customer = current_customer
+  	if @reservation.save                
+  		redirect_to reservation_path  #need to create a confirmation page and path or we just redirect to restaurant list and write a notice that the restervation has been saved
+  	else
+  		render "restaurants"
+  	end
+
   end
 
   def destroy

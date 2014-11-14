@@ -1,3 +1,39 @@
-<h2>Restaurants#index</h2>
+<h1>OpenSesame</h1>
+<h2>Book a Reservation!</h2>
 
-Some sort of big feature changes.
+<p class="userinfo">
+      <% if current_customer %>
+        Signed in as <%= current_customer.first_name %>. <%= link_to "Log out", session_path("current"), :method => :delete %>
+      <% else %>
+        <% redirect_to root.path %>
+      <% end %>
+</p>
+
+<%= form_for @reservation do |f| %>
+  <% if @reservation.errors.any? %>
+    <div class="error_messages">
+      <h2>Form is invalid</h2>
+      <ul>
+        <% for message in @reservation.errors.full_messages %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.label :reservation_time %><br/>
+    <%= f.datetime_field :reservation_time %>
+  </div>
+  <div class="field">
+    <%= f.label :party_size %><br/>
+    <%= f.number_field :party_size %>
+  </div>
+  <div class="actions"><%= f.submit %></div>
+<% end %>
+
+<% @restaurants.each do |x| %>
+	<h2><%= x.name %></h2>
+	<h2><%= x.phone_number %></h2>
+	<h2><%= x.address %></h2> 
+	<h2><%= x.capacity %></h2>
+<% end %>
