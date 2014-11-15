@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
   root 'customers#new'
-# This here is a nested route, this means that there cannot be a
-# a reservation that exists without a restaurant
+  # This here is a nested route, this means that there cannot be a
+  # a reservation that exists without a restaurant
   resources :restaurants, only: [:index, :show] do
     resources :reservations, only: [:show, :create, :destroy]
   end
