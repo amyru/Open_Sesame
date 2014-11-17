@@ -1,3 +1,29 @@
-<h1>Open Sesame</h1>
-<%= render 'form' %>
+<h1><%= @restaurant.name %></h1>
 <h2>Make a Reservation:</h2>
+<%= form_for [@restaurant, @reservation] do |f| %>
+  <% if @reservation.errors.any? %>
+    <div class="error_messages">
+      <h2>Form is invalid</h2>
+      <ul>
+        <% for message in @reservation.errors.full_messages %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.label :reservation_time %><br/>
+    <%= f.datetime_select :reservation_time %>
+  </div>
+  <div class="field">
+    <%= f.label :party_size %><br/>
+    <%= f.number_field :party_size %>
+  </div>
+  <div class="actions"><%= f.submit %></div>
+<% end %>
+
+<h2>Reservations</h2>
+
+<% @restaurant.reservations.each do |reservation| %>
+	<p><%= reservation.reservation_time %> - <%= reservation.party_size %></p>
+<% end %>

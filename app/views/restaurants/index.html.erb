@@ -1,8 +1,21 @@
-<h1>All Restaurants</h1>
+
+<h1>OpenSesame</h1>
+<h2>Book a Reservation!</h2>
+
+<p class="userinfo">
+      <% if current_customer %>
+        Signed in as <%= current_customer.first_name %>. <%= link_to "Log out", session_path("current"), :method => :delete %>
+      <% else %>
+        <% redirect_to root.path %>
+      <% end %>
+</p>
+
+
 
 <% @restaurants.each do |restaurant| %>
-  <p><%= restaurant.name %></p>
-
-
-  
+	<p>
+    <%= restaurant.name %> - <%= restaurant.phone_number %> - <%= restaurant.address %> - <%= restaurant.capacity %>
+    <%= link_to "View", restaurant_path(restaurant) %> 
+  </p>
 <% end %>
+

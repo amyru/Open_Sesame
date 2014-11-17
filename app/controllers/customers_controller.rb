@@ -5,11 +5,14 @@ class CustomersController < ApplicationController
 
   def create
     @customer = Customer.new(customer_params)
-      if @customer.save 
-        redirect_to restaurants_url
-      else
-        render "new"
-      end
+    if @customer.save 
+      flash[:notice] = "Signed up"
+      session[:customer_id] = @customer.id
+      redirect_to restaurants_url
+    else
+      flash.now[:alert] = "oh, something bad happened."
+      render "new"
+    end
   end
 
   def show
