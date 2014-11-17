@@ -3,12 +3,10 @@
 <%= form_for [@restaurant, @reservation] do |f| %>
   <% if @reservation.errors.any? %>
     <div class="error_messages">
-      <h2>Form is invalid</h2>
-      <ul>
+    Sorry! Really sorry.
         <% for message in @reservation.errors.full_messages %>
-          <li><%= message %></li>
+          <h2><%= message %></h2>
         <% end %>
-      </ul>
     </div>
   <% end %>
   <div class="field">

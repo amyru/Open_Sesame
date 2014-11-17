@@ -12,7 +12,6 @@ Rails.application.routes.draw do
   get 'profile' => 'customers#show' # so my profile path shows up as profile and not reservation/show
 
 
-
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

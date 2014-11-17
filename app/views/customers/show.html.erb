@@ -1,8 +1,18 @@
 <h1>My Profile</h1>
 
 
-<h2>Existing Reservations</h2>
-<p>
-<b>Reservation:
-<%= @reservation_id %> </b>
-</p>
+<h2>These are your existing reservations:</h2>
+
+
+<% current_customer.reservations.each do |reservation| %>
+	<p>
+		You have a reservation at <%= reservation.restaurant.name %>, 
+		for <%= reservation.party_size %> people, 
+		at <%= reservation.reservation_time.strftime("%l:%M %p") %> 
+		on <%= reservation.reservation_time.strftime("%A, %B %d") %>. 
+
+		<%= link_to "Cancel Reservation", restaurant_reservation_path(reservation.restaurant, reservation), :method => :delete %>
+  	</p>
+
+
+<% end %>

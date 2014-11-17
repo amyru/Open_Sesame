@@ -14,8 +14,8 @@
 
 <% @restaurants.each do |restaurant| %>
 	<p>
-    <%= restaurant.name %> - <%= restaurant.phone_number %> - <%= restaurant.address %> - <%= restaurant.capacity %>
-    <%= link_to "View", restaurant_path(restaurant) %> 
+    <strong> <%= restaurant.name %> </strong>
+    <%= link_to "Reserve now", restaurant_path(restaurant) %> 
   </p>
 <% end %>
 
