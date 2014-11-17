@@ -1,2 +1,5 @@
-<h1>Customer#show</h1>
-<p>Find me in app/views/customer/show.html.erb</p>
+<h1>My Profile and Reservations</h1>
+<% @reservations.each do |reservation| %>
+  <p><%= restaurant.name %>,</p>
+  <%= link_to reservation.id, "/reservations/#{reservation.id}" %>
+<% end %>
