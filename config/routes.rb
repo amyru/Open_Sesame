@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   resources :customers, only: [:new, :create, :show]
 
-  get 'profile' => 'customer#show' # so my profile path shows up as profile and not reservation/show
+  get 'profile' => 'customers#show' # so my profile path shows up as profile and not reservation/show
 
 
 
